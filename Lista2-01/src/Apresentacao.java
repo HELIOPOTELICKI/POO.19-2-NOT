@@ -21,6 +21,9 @@ public class Apresentacao extends JFrame {
 	private JTextField tfUF;
 	private JLabel lblRendaAnualR;
 	private JTextField tfRendaAnual;
+	private Contribuinte[] vetorContribuintes = new Contribuinte[20];
+	private int indiceVetor = 0;
+	private JTextField tfValorConsulta;
 
 	/**
 	 * Launch the application.
@@ -88,16 +91,52 @@ public class Apresentacao extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// criar objeto de contribuinte
 				Contribuinte contAtual = new Contribuinte();
+				// atribuir os valores digitados pelo usuário
 				contAtual.setNome(tfNome.getText());
 				contAtual.setCpf(tfCPF.getText());
 				contAtual.setUf(tfUF.getText());
 				contAtual.setRendaAnual(
 						Double.parseDouble(tfRendaAnual.getText()));
+				// calcular e exibir o imposto
 				JOptionPane.showMessageDialog(null, contAtual.calcularImposto());
+				// guardar o objeto
+				vetorContribuintes[indiceVetor] = contAtual;
+				indiceVetor++;
 			}
 		});
 		btnCadastrar.setBounds(240, 103, 89, 23);
 		contentPane.add(btnCadastrar);
+		
+		JLabel lblValorDoImposto = new JLabel("Valor do imposto a consultar:");
+		lblValorDoImposto.setBounds(10, 186, 148, 14);
+		contentPane.add(lblValorDoImposto);
+		
+		tfValorConsulta = new JTextField();
+		tfValorConsulta.setBounds(168, 183, 86, 20);
+		contentPane.add(tfValorConsulta);
+		tfValorConsulta.setColumns(10);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				double valorConsulta = Double.parseDouble(tfValorConsulta.getText());
+				Contribuinte consultado;
+				for (int i = 0; i < indiceVetor; i++) {
+					consultado = vetorContribuintes[i];
+					if (consultado.calcularImposto() > valorConsulta) {
+						String str = "Contribuinte: "+consultado.getNome()
+									 + "\nCPF:"+consultado.getCpf()
+									 + "\nEstado: "+consultado.getUf()
+									 + "\nRenda anual: "+consultado.getRendaAnual()
+									 + "\nImposto: "+consultado.calcularImposto();
+						JOptionPane.showMessageDialog(contentPane,str);
+					}
+				}
+			}
+		});
+		btnConsultar.setBounds(275, 182, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 }
