@@ -42,4 +42,28 @@ public class InteiroPositivo {
 		str = str + " e quantidade de divisores é "+qtd;
 		return str;
 	}
+	
+	// item e)
+	public int[] fibonacci() {
+		int[] vetor = new int[this.x];
+		if (this.x > 0) {
+			vetor[0]= 1;
+			if (this.x > 1) {
+				vetor[1]= 1;
+			}
+		}
+		for (int i = 2; i < this.x ; i++) {
+			vetor[i] = vetor[i-2]+vetor[i-1];
+		}
+		return vetor;
+	}
+	
+	// item f)
+	public double valorH() {
+		double h = 0;
+		for (int d=1; d <= this.x; d++) {
+			h = h + 1.0/d;
+		}
+		return h;
+	}
 }

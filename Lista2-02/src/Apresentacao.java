@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.awt.event.ActionEvent;
 
 public class Apresentacao extends JFrame {
@@ -16,6 +17,8 @@ public class Apresentacao extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextArea textArea = new JTextArea();
+	private InteiroPositivo anterior;
+
 
 	/**
 	 * Launch the application.
@@ -60,7 +63,14 @@ public class Apresentacao extends JFrame {
 				ip.setValor(Integer.parseInt(textField.getText()));
 				textArea.setText("Valor = "+ip.getValor());
 				textArea.append("\nFatorial = "+ip.fatorial());
+				if (anterior != null) {
+					textArea.append("\nMultiplica "+anterior.getValor()
+									+" = "+ip.multiplicar(anterior));
+				}
+				textArea.append("\nFibonacci = "+Arrays.toString(ip.fibonacci()));
+				textArea.append("\nValor H = "+ip.valorH());
 				textArea.append("\n"+ip.divisoresInteiros());
+				anterior = ip;
 			}
 		});
 		btnOk.setBounds(163, 7, 89, 23);
