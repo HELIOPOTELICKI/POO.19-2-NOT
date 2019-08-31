@@ -5,13 +5,53 @@ import org.junit.Test;
 public class ContribuinteTest {
 
 	@Test
-	public void testSetUf() {
-		fail("Not yet implemented");
+	public void testSetUf06() {
+		Contribuinte c = new Contribuinte();
+		String uf = "SC";
+		c.setUf(uf);
+		assertEquals(uf,c.getUf());
 	}
+	
+	@Test
+	public void testSetUf07() {
+		Contribuinte c = new Contribuinte();
+		String uf = "PR";
+		c.setUf(uf);
+		assertEquals(uf,c.getUf());
+	}
+	
+	@Test
+	public void testSetUf08() {
+		Contribuinte c = new Contribuinte();
+		String uf = "RS";
+		c.setUf(uf);
+		assertEquals(uf,c.getUf());
+	}
+	
+	@Test
+	public void testSetUf09() {
+		Contribuinte c = new Contribuinte();
+		String uf = "SC";
+		c.setUf(uf);
+		c.setUf("RJ");
+		assertEquals(uf,c.getUf());
+	}	
+	
+	@Test
+	public void testSetUf10() {
+		Contribuinte c = new Contribuinte();
+		String uf = "SC";
+		c.setUf(uf);
+		c.setUf("SP");
+		assertEquals(uf,c.getUf());
+	}	
 
 	@Test
-	public void testSetRendaAnual() {
-		fail("Not yet implemented");
+	public void testSetRendaAnual05() {
+		Contribuinte c = new Contribuinte();
+		c.setRendaAnual(10000);
+		c.setRendaAnual(-818.50);
+		assertEquals(10000, c.getRendaAnual(),0);
 	}
 
 	@Test

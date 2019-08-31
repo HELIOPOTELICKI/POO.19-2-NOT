@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class VetorDeReais {
 	private double[] vetor;
@@ -82,5 +83,9 @@ public class VetorDeReais {
 			}
 		}
 		return maior;
+	}
+	
+	public String exibir() {
+		return Arrays.toString(this.vetor);
 	}
 }
