@@ -39,7 +39,7 @@ public class InteiroPositivo {
 				qtd++;
 			}
 		}
-		str = str + " e quantidade de divisores é "+qtd;
+		str = str + " e a quantidade de divisores é "+qtd;
 		return str;
 	}
 	

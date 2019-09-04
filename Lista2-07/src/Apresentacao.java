@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
@@ -90,8 +91,16 @@ public class Apresentacao extends JFrame {
 		JButton btnIncluir = new JButton("Incluir");
 		btnIncluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
 				atual.setValor(Double.parseDouble(tfValor.getText()), 
 						       Integer.parseInt(tfPos.getText()));
+				} catch (ArrayIndexOutOfBoundsException excecao) {
+					JOptionPane.showMessageDialog(contentPane, "Posição do vetor inválida.Redigite.");
+				} catch (NullPointerException npe) {
+					JOptionPane.showMessageDialog(contentPane, "Vetor inexistente. Digite um tamanho e clique em Criar.");					
+				} catch (Exception excecao) {
+					JOptionPane.showMessageDialog(contentPane, excecao.getClass().getName()+"-"+excecao.getMessage());
+				}
 			}
 		});
 		btnIncluir.setBounds(323, 55, 89, 23);
