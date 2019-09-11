@@ -27,6 +27,9 @@ public class Parecer {
             && !nomeParecerista.isEmpty()){
             this.nomeParecerista = nomeParecerista;
         }
+        else {
+        	throw new IllegalArgumentException("Nome do parecerista inválido");
+        }
     }
 
     public LocalDate getData() {
