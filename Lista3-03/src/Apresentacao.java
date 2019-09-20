@@ -238,7 +238,7 @@ public class Apresentacao extends javax.swing.JFrame {
 
         jLabel9.setText("Prioridade:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alta", "Média", "Baixa" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alta", "Normal", "Baixa" }));
 
         jLabel7.setText("Pesquisar compromissos:");
 
