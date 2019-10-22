@@ -34,6 +34,7 @@ public abstract class Telefone {
     }
 
     public void setNumero(String numero) {
+    	System.out.println(numero);
         if (numero == null
         		|| numero.length()!=10){  
             throw new IllegalArgumentException("Número do telefone inválido - não contém 10 dígitos");

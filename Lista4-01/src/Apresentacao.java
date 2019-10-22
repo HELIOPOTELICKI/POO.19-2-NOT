@@ -1,4 +1,5 @@
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -6,10 +7,12 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.text.MaskFormatter;
 import javax.swing.GroupLayout;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JFormattedTextField;
 
 /**
  *
@@ -39,7 +42,11 @@ public class Apresentacao extends javax.swing.JFrame {
 
 		buttonGroup1 = new javax.swing.ButtonGroup();
 		jLabel1 = new javax.swing.JLabel();
-		jTextField1 = new javax.swing.JTextField();
+		try {
+			jTextField1 = new JFormattedTextField(new MaskFormatter("(##)####-####"));
+		} catch (ParseException pe) {
+			
+		}
 		jLabel2 = new javax.swing.JLabel();
 		jTextField2 = new javax.swing.JTextField();
 		jLabel3 = new javax.swing.JLabel();
@@ -310,7 +317,7 @@ public class Apresentacao extends javax.swing.JFrame {
 	private javax.swing.JRadioButton jRadioButton1;
 	private javax.swing.JRadioButton jRadioButton2;
 	private javax.swing.JSeparator jSeparator1;
-	private javax.swing.JTextField jTextField1;
+	private JFormattedTextField jTextField1;
 	private javax.swing.JTextField jTextField2;
 	private javax.swing.JTextField jTextField3;
 	private javax.swing.JTextField jTextField4;

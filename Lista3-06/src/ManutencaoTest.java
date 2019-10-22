@@ -31,7 +31,7 @@ public class ManutencaoTest {
     @Test(expected=IllegalArgumentException.class)
     public void testSetNumeroInvalido() {
         System.out.println("setNumero Invalido");
-        int numero = 0;
+        int numero = 1;
         Manutencao instance = new Manutencao();
         instance.setNumero(numero);
     }    
