@@ -7,7 +7,7 @@ import java.time.Period;
  *
  * @author marcel
  */
-public abstract class Aluno {
+public abstract class Aluno implements Comparable<Aluno>{
     private String nome;
     private LocalDate dataNascimento;
 
@@ -50,6 +50,11 @@ public abstract class Aluno {
     }
 
     public abstract String mostra();
+
+	@Override
+	public int compareTo(Aluno outro) {
+		return this.getNome().compareTo(outro.getNome());
+	}
 
 }
 
